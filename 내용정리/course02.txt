@@ -1,0 +1,45 @@
+GET :: 정보를 전달 할 수 없음
+POST :: 정보를 전달 할 수 있다 ( 서버로 )
+
+
+Babel 이란
+최신의 Javascript 코드를 무난한 예전의 Javascript 코드로 변환해준다
+(최신 JS코드 작성시 표준의 코드로 변환해줌)
+
+npm install @babel/node
+npm install @babel/preset-env
+.babelrc 파일 생성
+	{
+ 	 "presets": ["@babel/preset-env"]
+	}
+
+ -> Babel이 실행되기 전에 이 파일을 찾아보고 설정해둔 preset을 읽고 이해함
+
+pacage.json에 "start" : "node index.js" 대신에 "babel-node index.js"
+ => node 가 내 index.js 실행 대신 babel이 실행해줌, babel이 코드를 변환 시킴
+
+npm install @babel/core
+
+const 변수 선언 & arrow function 적용
+
+function handleHome(req,res) {
+	res.send("Hello from home");
+}
+
+===>
+
+const handleHome = (req, res) => res.send("Hello from home");
+
+
+수동으로 서버를 껐다 켰다 하는것 불편하다
+그래서
+dependency와 별개로 package 설치하는 방법
+dependency란 프로젝트가 실행되려면 필요한것
+
+npm install nodemon -D  :: 프로그래머에게 필요한것이라서 dependency에 포함 안됨
+
+저장할때마다 서버를 새로 실행함
+
+이제 서버를 매번 껏다 켤 필요가 없다.
+
+

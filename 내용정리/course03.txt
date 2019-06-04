@@ -1,0 +1,27 @@
+express
+middleware : 처리가 끝날 때까지 연결되어있는 것
+
+어떻게 연력이 시작되는가
+request의 시작은 브라우저에서부터.
+웹사이트에 접속할때 시작
+index파일을 실행, application이 route가 존재하는지 살펴봄
+app.get("/", handleHome); //home을 요청
+home을 찾은 다음에 handleHome이라는 함수 실행
+handleHome은 응답을 전송함
+
+유저와 마지막 응답 사이에 존재하는 것이 middleware. 
+express에서의 모든 함수는 middleware
+
+middleware - morgan
+:: logging에 도움을 주는 것
+logging이란 무슨일이 어디서 일어났는지를 기록하는 것
+ 어떤접속(GET)인지 정보를 알 수 있고, 어디에 접속하는지 등
+
+app.use(morgan("dev")); //morgan을 사용한 첫번째 middleware
+
+추가해야되는 middleware
+helmet : 보안을 위한것
+body-parser : form을 입력받았을때 그 데이터를 갖고 있는 request object에 접근할 수 있게 함
+	      body로부터 정보를 얻을 수 있게 해주는 것
+cookie-parser : cookie에 유저 정보를 저장. session을 다루기 위해서.
+ 
